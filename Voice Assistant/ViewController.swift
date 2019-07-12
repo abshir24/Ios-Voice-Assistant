@@ -97,6 +97,11 @@ class ViewController: UIViewController {
                
                 self.textView?.text = result?.bestTranscription.formattedString
                 
+                //Added stop after the word "stop" is part of the string
+                if (((result?.bestTranscription.formattedString)?.contains("stop"))!) {
+                    self.audioEngine.stop()
+                }
+                
                 isFinal = (result?.isFinal)!
             }
             
