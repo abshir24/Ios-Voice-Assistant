@@ -95,9 +95,7 @@ class ViewController: UIViewController {
             
             if result != nil {
                
-                if result?.bestTranscription.formattedString.contains("here"){
-                    self.audioEngine.stop()
-                }
+                self.textView?.text = result?.bestTranscription.formattedString
                 
                 isFinal = (result?.isFinal)!
             }
