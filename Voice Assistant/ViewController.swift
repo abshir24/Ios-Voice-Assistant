@@ -94,7 +94,6 @@ class ViewController: UIViewController {
             var isFinal = false
             
             if result != nil {
-               
                 self.textView?.text = result?.bestTranscription.formattedString
                 
                 isFinal = (result?.isFinal)!
@@ -127,14 +126,7 @@ class ViewController: UIViewController {
         textView?.text = "Say something, I'm listening!"
     }
     
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
-        print("Speech Recognizer")
-        if available {
-            activateBtn.isEnabled = true
-        } else {
-            activateBtn.isEnabled = false
-        }
-    }
+  
     
 }
 
