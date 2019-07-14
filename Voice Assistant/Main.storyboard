@@ -38,11 +38,14 @@
                     </view>
                     <connections>
                         <outlet property="textView" destination="zKr-je-Tx1" id="7Ay-sA-pCY"/>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="xPY-ST-Dbg"/>
+                        <segue destination="viz-8Y-u6a" kind="show" identifier="Share" id="OoI-lU-uVl"/>
+                        <segue destination="bwB-fr-kSz" kind="show" identifier="Comment" id="vQx-no-Uup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1435" y="-152"/>
+            <point key="canvasLocation" x="-1787" y="-152"/>
         </scene>
         <!--Share View-->
         <scene sceneID="oQr-SN-f3U">
@@ -66,12 +69,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCR-yS-jTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-739.13043478260875" y="-152.00892857142856"/>
+            <point key="canvasLocation" x="-738" y="-617"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="59e-qu-kKu">
             <objects>
-                <viewController id="bwB-fr-kSz" sceneMemberID="viewController">
+                <viewController id="bwB-fr-kSz" customClass="ViewController" customModule="Voice_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vdv-cb-id8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxu-3x-VNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="-152.00892857142856"/>
+            <point key="canvasLocation" x="-672" y="194"/>
         </scene>
     </scenes>
 </document>

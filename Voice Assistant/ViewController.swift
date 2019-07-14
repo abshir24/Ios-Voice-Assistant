@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     private var audioEngine = AVAudioEngine()
     var lang:String = "en-US"
     
+   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +27,8 @@ class ViewController: UIViewController {
         speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier: lang))
         
         activateMic()
+        
+      
     }
     
     func activateMic() {
@@ -37,6 +42,7 @@ class ViewController: UIViewController {
             startRecording()
         }
     }
+    
     
     func startRecording() {
         print("Start Recording")
@@ -78,7 +84,30 @@ class ViewController: UIViewController {
                 
                 if (keyWordUsed) {
                     self.audioEngine.stop()
-                    self.textView?.text = nil // This part sets the String that holds all words in speech to empty.
+                    
+                    //Restarts audio engine
+                    do {
+                        try self.audioEngine.start()
+                        
+                    } catch {
+                        print("audioEngine couldn't start because of an error.")
+                    }
+                    
+                    currSpeechStr = (result?.bestTranscription.formattedString)!
+                    
+                    //If user asks to share image send to share view
+                    if(currSpeechStr.lowercased().contains("share")){
+                        self.audioEngine.stop()
+                       self.performSegue(withIdentifier: "Share", sender: self)
+                    }
+                    //If user asks to comment on image goes to comment view
+                    else if(currSpeechStr.lowercased().contains("comment"))
+                    {
+                        self.audioEngine.stop()
+                        self.performSegue(withIdentifier: "Comment", sender: self)
+                    }
+                    
+//                    self.textView?.text = nil // This part sets the String that holds all words in speech to empty.
                 }
                 
                 isFinal = (result?.isFinal)!
@@ -107,6 +136,11 @@ class ViewController: UIViewController {
         }
         
         textView?.text = "Say something, I'm listening!"
+    }
+    
+    func connectCommands(_ command: String)
+    {
+        
     }
     
   
