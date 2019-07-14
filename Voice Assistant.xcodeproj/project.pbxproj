@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F454086F22DAC8E8002693B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F454086E22DAC8E8002693B3 /* Main.storyboard */; };
+		F454087122DADEF3002693B3 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454087022DADEF3002693B3 /* ShareViewController.swift */; };
+		F454087322DAE02A002693B3 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454087222DAE02A002693B3 /* CommentViewController.swift */; };
 		F4CA941A22D7AE60000E54AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA941922D7AE60000E54AC /* AppDelegate.swift */; };
 		F4CA941C22D7AE60000E54AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA941B22D7AE60000E54AC /* ViewController.swift */; };
 		F4CA942122D7AE61000E54AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4CA942022D7AE61000E54AC /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		F454086E22DAC8E8002693B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F454087022DADEF3002693B3 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F454087222DAE02A002693B3 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		F4CA941622D7AE60000E54AC /* Voice Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CA941922D7AE60000E54AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4CA941B22D7AE60000E54AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				F4CA942022D7AE61000E54AC /* Assets.xcassets */,
 				F4CA942222D7AE61000E54AC /* LaunchScreen.storyboard */,
 				F4CA942522D7AE61000E54AC /* Info.plist */,
+				F454087022DADEF3002693B3 /* ShareViewController.swift */,
+				F454087222DAE02A002693B3 /* CommentViewController.swift */,
 			);
 			path = "Voice Assistant";
 			sourceTree = "<group>";
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F454087322DAE02A002693B3 /* CommentViewController.swift in Sources */,
+				F454087122DADEF3002693B3 /* ShareViewController.swift in Sources */,
 				F4CA941C22D7AE60000E54AC /* ViewController.swift in Sources */,
 				F4CA941A22D7AE60000E54AC /* AppDelegate.swift in Sources */,
 			);

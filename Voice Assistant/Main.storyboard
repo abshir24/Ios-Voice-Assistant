@@ -50,7 +50,7 @@
         <!--Share View-->
         <scene sceneID="oQr-SN-f3U">
             <objects>
-                <viewController title="Share View" id="viz-8Y-u6a" sceneMemberID="viewController">
+                <viewController title="Share View" id="viz-8Y-u6a" customClass="ShareViewController" customModule="Voice_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kR0-C3-hcG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,15 +66,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jIq-s7-sCZ"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeSeg" id="maY-zn-S5y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCR-yS-jTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-738" y="-617"/>
         </scene>
-        <!--View Controller-->
+        <!--Comment View Controller-->
         <scene sceneID="59e-qu-kKu">
             <objects>
-                <viewController id="bwB-fr-kSz" customClass="ViewController" customModule="Voice_Assistant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bwB-fr-kSz" customClass="CommentViewController" customModule="Voice_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vdv-cb-id8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,10 +93,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cbr-sC-rXL"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goHome" id="vfN-Jn-C9H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxu-3x-VNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-672" y="194"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vfN-Jn-C9H"/>
+    </inferredMetricsTieBreakers>
 </document>
