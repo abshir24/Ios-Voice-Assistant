@@ -10,6 +10,8 @@
 		F454086F22DAC8E8002693B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F454086E22DAC8E8002693B3 /* Main.storyboard */; };
 		F454087122DADEF3002693B3 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454087022DADEF3002693B3 /* ShareViewController.swift */; };
 		F454087322DAE02A002693B3 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454087222DAE02A002693B3 /* CommentViewController.swift */; };
+		F454087522DAE445002693B3 /* confirmationsound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F454087422DAE444002693B3 /* confirmationsound.mp3 */; };
+		F454087822DAE4B8002693B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F454087722DAE4B8002693B3 /* AVFoundation.framework */; };
 		F4CA941A22D7AE60000E54AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA941922D7AE60000E54AC /* AppDelegate.swift */; };
 		F4CA941C22D7AE60000E54AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CA941B22D7AE60000E54AC /* ViewController.swift */; };
 		F4CA942122D7AE61000E54AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4CA942022D7AE61000E54AC /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 		F454086E22DAC8E8002693B3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F454087022DADEF3002693B3 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F454087222DAE02A002693B3 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		F454087422DAE444002693B3 /* confirmationsound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = confirmationsound.mp3; sourceTree = "<group>"; };
+		F454087722DAE4B8002693B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F4CA941622D7AE60000E54AC /* Voice Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CA941922D7AE60000E54AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4CA941B22D7AE60000E54AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +37,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F454087822DAE4B8002693B3 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F454087622DAE4B8002693B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F454087722DAE4B8002693B3 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4CA940D22D7AE60000E54AC = {
 			isa = PBXGroup;
 			children = (
 				F4CA941822D7AE60000E54AC /* Voice Assistant */,
 				F4CA941722D7AE60000E54AC /* Products */,
+				F454087622DAE4B8002693B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +78,7 @@
 				F4CA942022D7AE61000E54AC /* Assets.xcassets */,
 				F4CA942222D7AE61000E54AC /* LaunchScreen.storyboard */,
 				F4CA942522D7AE61000E54AC /* Info.plist */,
+				F454087422DAE444002693B3 /* confirmationsound.mp3 */,
 				F454087022DADEF3002693B3 /* ShareViewController.swift */,
 				F454087222DAE02A002693B3 /* CommentViewController.swift */,
 			);
@@ -129,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F454086F22DAC8E8002693B3 /* Main.storyboard in Resources */,
+				F454087522DAE445002693B3 /* confirmationsound.mp3 in Resources */,
 				F4CA942422D7AE61000E54AC /* LaunchScreen.storyboard in Resources */,
 				F4CA942122D7AE61000E54AC /* Assets.xcassets in Resources */,
 			);

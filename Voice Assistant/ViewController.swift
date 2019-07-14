@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
@@ -17,12 +18,19 @@ class ViewController: UIViewController {
     private var audioEngine = AVAudioEngine()
     var lang:String = "en-US"
     
-   
-    
+    var confirmationEffect: AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let audioFile = Bundle.main.path(forResource: "confirmationsound", ofType:".mp3")
+        
+        do{
+            try confirmationEffect = AVAudioPlayer(contentsOf: URL(fileURLWithPath:audioFile!))
+        }
+        catch{
+            print("File not found")
+        }
         speechRecognizer?.delegate = self as? SFSpeechRecognizerDelegate//3
         speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier: lang))
         
@@ -84,6 +92,8 @@ class ViewController: UIViewController {
                 var keyWordUsed: Bool = currSpeechStr.lowercased().contains(keyWord)
                 
                 if (keyWordUsed) {
+                    self.confirmationEffect.play()
+                    
                     self.audioEngine.stop()
                     
                     //Restarts audio engine
