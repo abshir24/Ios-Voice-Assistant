@@ -95,10 +95,15 @@ class ViewController: UIViewController {
             
             if result != nil {
                 self.textView?.text = result?.bestTranscription.formattedString
+                let keyWord = "hey victoria"
+                // currSpeechStr holds all speech input as a String.
+                var currSpeechStr: String = (result?.bestTranscription.formattedString)!
+                var keyWordUsed: Bool = currSpeechStr.lowercased().contains(keyWord)
                 
-                //Added stop after the word "stop" is part of the string
-                if (((result?.bestTranscription.formattedString)?.contains("stop"))!) {
+                if (keyWordUsed) {
                     self.audioEngine.stop()
+                    print((self.textView?.text)!)
+                    self.textView?.text = nil // This part sets the String that holds all words in speech to empty.
                 }
                 
                 isFinal = (result?.isFinal)!
