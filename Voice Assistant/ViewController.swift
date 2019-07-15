@@ -12,7 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
-    private var speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier:"en-Us"))//1
+    private var speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier:"en-Us"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private var audioEngine = AVAudioEngine()
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sound that plays when "Hey Victoria" is heard
         let audioFile = Bundle.main.path(forResource: "confirmationsound", ofType:".mp3")
         
         do{
@@ -31,30 +32,23 @@ class ViewController: UIViewController {
         catch{
             print("File not found")
         }
-        speechRecognizer?.delegate = self as? SFSpeechRecognizerDelegate//3
-        speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier: lang))
+        speechRecognizer?.delegate = self as? SFSpeechRecognizerDelegate
         
         //Activates mic so that it is listening throughout the whole app
-        activateMic()
+       startRecording()
         
-      
     }
-    
-    func activateMic() {
-        print("activateMic")
-        speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier:lang))
-        startRecording()
-    }
-    
     
     func startRecording() {
         print("Start Recording")
         
+        //If the recognition is on, turn it off
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
         }
         
+        //Make the AudioSession start recording
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSession.Category.record)
@@ -74,11 +68,14 @@ class ViewController: UIViewController {
         
         recognitionRequest.shouldReportPartialResults = true
         
+        //Start the recognizion proccess
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             
             var isFinal = false
             
+            //if there is speech to recognize
             if result != nil {
+                //print the recognized speech to the screen as a String
                 self.textView?.text = result?.bestTranscription.formattedString
                 let keyWord = "hey victoria"
                 // currSpeechStr holds all speech input as a String.
@@ -113,7 +110,7 @@ class ViewController: UIViewController {
                         self.performSegue(withIdentifier: "Comment", sender: self)
                     }
                     
-//                    self.textView?.text = nil // This part sets the String that holds all words in speech to empty.
+                    //self.textView?.text = nil // This part sets the String that holds all words in speech to empty.
                 }
                 
                 isFinal = (result?.isFinal)!
