@@ -15,6 +15,10 @@ class ShareViewController: UIViewController {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private var audioEngine = AVAudioEngine()
+    let synthesizer = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string:"")
+    
+    
     var lang:String = "en-US"
     
     override func viewDidLoad() {
@@ -28,7 +32,6 @@ class ShareViewController: UIViewController {
     }
     
     func activateMic() {
-        print("activateMic Share")
         speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier:lang))
         
         if audioEngine.isRunning{
@@ -41,6 +44,13 @@ class ShareViewController: UIViewController {
     
     func startRecording() {
         print("Start Recording")
+        
+        //lines 49-53 are is the code that deals with Victoria speaking to the user
+        myUtterance = AVSpeechUtterance(string:"Would you like to share this image?")
+        
+        myUtterance.rate = 0.5
+        
+        synthesizer.speak(myUtterance)
         
         if recognitionTask != nil {
             recognitionTask?.cancel()
@@ -71,15 +81,27 @@ class ShareViewController: UIViewController {
             var isFinal = false
             
             if result != nil {
-                let keyWord = "home"
                 // currSpeechStr holds all speech input as a String.
                 let currSpeechStr: String = (result?.bestTranscription.formattedString)!
-                let keyWordUsed: Bool = currSpeechStr.lowercased().contains(keyWord)
+                let keyWordUsed: Bool = currSpeechStr.lowercased().contains("home") || currSpeechStr.lowercased().contains("yes")
                 
                 if (keyWordUsed) {
                     self.audioEngine.stop()
                     
+                    //If the user says yes to sharing the image a confirmation response is sent
+                    //If the user wants to go back to the home screen then the view will change to the home screen
+                    if(currSpeechStr.lowercased().contains("yes"))
+                    {
+                        self.myUtterance = AVSpeechUtterance(string:"This image was shared")
+                        
+                        self.myUtterance.rate = 0.5
+                        
+                        self.synthesizer.speak(self.myUtterance)
+                    }
+                    
                     self.performSegue(withIdentifier: "homeSeg", sender: self)
+                    
+                    
                 }
                 
                 isFinal = (result?.isFinal)!
