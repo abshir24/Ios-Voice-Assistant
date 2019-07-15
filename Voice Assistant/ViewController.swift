@@ -43,13 +43,7 @@ class ViewController: UIViewController {
     func activateMic() {
         print("activateMic")
         speechRecognizer = SFSpeechRecognizer(locale:Locale.init(identifier:lang))
-        
-        if audioEngine.isRunning{
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-        }else{
-            startRecording()
-        }
+        startRecording()
     }
     
     
@@ -92,6 +86,7 @@ class ViewController: UIViewController {
                 var keyWordUsed: Bool = currSpeechStr.lowercased().contains(keyWord)
                 
                 if (keyWordUsed) {
+                    //This plays the chime sound when user calls on Victoria
                     self.confirmationEffect.play()
                     
                     self.audioEngine.stop()

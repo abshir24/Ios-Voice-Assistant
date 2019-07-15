@@ -71,12 +71,13 @@ class ShareViewController: UIViewController {
             var isFinal = false
             
             if result != nil {
-                let keyWord = "home"
+                let keyWord = "hey Victoria"
                 // currSpeechStr holds all speech input as a String.
                 let currSpeechStr: String = (result?.bestTranscription.formattedString)!
                 let keyWordUsed: Bool = currSpeechStr.lowercased().contains(keyWord)
                 
                 if (keyWordUsed) {
+                    
                     self.audioEngine.stop()
                     
                     self.performSegue(withIdentifier: "homeSeg", sender: self)
